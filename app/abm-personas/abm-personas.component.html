@@ -1,0 +1,31 @@
+
+<div class="d-flex justify-content-center w-100">
+    <button mat-raised-button (click)="openDialog()">Agregar Alumno</button>
+</div>
+
+<mat-table [dataSource]="ELEMENT_DATA">
+    <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+        <mat-cell *matCellDef="let persona"> {{persona.nombre}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="edad">
+        <mat-header-cell *matHeaderCellDef>Edad</mat-header-cell>
+        <mat-cell *matCellDef="let persona"> {{persona.edad}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="accion">
+        <mat-header-cell *matHeaderCellDef>Eliminar</mat-header-cell>
+        <mat-cell *matCellDef="let persona">
+            <mat-icon class="mat-18 color-red cursor-pointer" (click)="borrar(persona.id)">delete</mat-icon>   
+        </mat-cell>
+    </ng-container>
+
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+
+
+</mat-table>

@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+<app-content></app-content>
+<app-main></app-main>  
+<button (click)="agregarCurso()">Agregar Curso</button>
+<pre>Cursos: {{ cursos$ | async | json }}</pre>
+<p>{{ merge$ | async | json }}</p>
+
+<button (click)="getUsers()">Get Users </button>
+<div *ngFor="let user of users | async">
+    {{users | json}}
+</div>
